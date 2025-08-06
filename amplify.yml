@@ -3,7 +3,9 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm ci
+        - echo $GOOGLE_MAPS_API_KEY
+        - echo "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=$GOOGLE_MAPS_API_KEY" >> .env
+        - npm install --cache .npm --no-save --no-package-lock
     build:
       commands:
         - npm run build
